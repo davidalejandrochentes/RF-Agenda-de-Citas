@@ -8,7 +8,7 @@ def client_layout(page_content: rx.Component) -> rx.Component:
     Includes the navbar and the search dialog.
     """
     return rx.el.div(
-        search_dialog(),
         navbar(),
         page_content,
+        search_dialog(),
     )

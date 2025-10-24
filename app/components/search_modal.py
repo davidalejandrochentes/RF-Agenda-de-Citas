@@ -9,7 +9,7 @@ def _found_appointment_card() -> rx.Component:
             "Detalles de tu Cita",
             class_name="text-lg font-semibold text-gray-800",
         ),
-        rx.el.div(class_name="my-4 border-t border-gray-200"),
+        rx.el.div(class_name="my-2 border-t border-gray-200"),
         # Basic Details
         rx.el.div(
             rx.el.p(
@@ -32,7 +32,7 @@ def _found_appointment_card() -> rx.Component:
                 rx.el.span("Barbero: ", class_name="font-medium"),
                 BarberState.found_appointment["barber"],
             ),
-            class_name="flex flex-col gap-2 text-gray-700",
+            class_name="flex flex-col gap-1 text-gray-700",
         ),
         # Services and Price Breakdown
         rx.el.div(
@@ -57,13 +57,13 @@ def _found_appointment_card() -> rx.Component:
                 ),
                 class_name="flex justify-between text-base text-gray-900 mt-2",
             ),
-            class_name="p-4 bg-gray-50 rounded-lg mt-4",
+            class_name="bg-gray-50 rounded-lg",
         ),
         # Cancel Button
         rx.el.button(
             "Cancelar Cita",
             on_click=BarberState.cancel_found_appointment,
-            class_name="w-full mt-6 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all",
+            class_name="w-full mt-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all",
             type="button",
         ),
         class_name="mt-6 w-full",
@@ -94,6 +94,7 @@ def _cancel_confirmation_dialog() -> rx.Component:
                 ),
                 class_name="flex gap-3 mt-4 justify-end",
             ),
+            class_name="z-50",
         ),
         open=BarberState.show_cancel_alert,
         on_open_change=BarberState.toggle_cancel_alert,
@@ -154,9 +155,9 @@ def search_dialog() -> rx.Component:
                             ),
                         ),
                     ),
-                    class_name="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full m-4 transition-all duration-300 animate-fade-in-up",
+                    class_name="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full m-4 transition-all duration-300 animate-fade-in-up max-h-[95vh] overflow-y-auto",
                 ),
-                class_name="fixed inset-0 z-50 flex items-center justify-center p-4",
+                class_name="fixed inset-0 z-50 flex items-center justify-center p-1",
             ),
             rx.el.div(
                 on_click=BarberState.close_search_dialog,

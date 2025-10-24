@@ -79,18 +79,14 @@ def confirmation_dialog() -> rx.Component:
                         class_name="text-xl font-semibold text-gray-900",
                     ),
                     rx.el.p(
-                        "Por favor, revise los detalles de su cita antes de confirmar.",
-                        class_name="text-sm text-gray-500 mt-1",
+                        "Por favor, revise los detalles de su cita antes de confirmar más abajo en esta ventana.",
+                        class_name="text-sm text-gray-500 font-semibold",
                     ),
                     rx.el.div(
-                        class_name="my-4 border-t border-gray-200"
+                        class_name="my-3 border-t border-gray-200"
                     ),
                     # Booking Code Display
                     rx.el.div(
-                        rx.el.h4(
-                            "Guarde su Código de Reserva",
-                            class_name="font-semibold text-gray-800 mb-2",
-                        ),
                         rx.el.div(
                             rx.icon("info", class_name="w-5 h-5 text-blue-500"),
                             rx.el.p(
@@ -103,7 +99,7 @@ def confirmation_dialog() -> rx.Component:
                             BarberState.pending_booking_code,
                             class_name="text-4xl font-bold tracking-widest text-center text-blue-600 my-4 p-3 bg-gray-100 rounded-lg",
                         ),
-                        class_name="mb-4",
+                        class_name="mb-2",
                     ),
                     rx.el.div(
                         rx.el.p(
@@ -153,7 +149,7 @@ def confirmation_dialog() -> rx.Component:
                                 parse="HH:mm",
                             ),
                         ),
-                        class_name="flex flex-col gap-2 my-4 text-base text-gray-700",
+                        class_name="flex flex-col gap-1 my-2 text-base text-gray-700",
                     ),
                     # Services and Price Breakdown
                     rx.el.div(
@@ -180,26 +176,26 @@ def confirmation_dialog() -> rx.Component:
                             ),
                             class_name="flex justify-between text-base text-gray-900 mt-2",
                         ),
-                        class_name="p-4 bg-gray-50 rounded-lg",
+                        class_name="bg-gray-50 rounded-lg",
                     ),
                     rx.el.div(
-                        rx.el.button(
-                            "Cancelar",
-                            on_click=BarberState.cancel_confirmation,
-                            class_name="w-full sm:w-auto px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium transition-all duration-300 transform hover:-translate-y-1",
-                            type="button",
-                        ),
                         rx.el.button(
                             "Confirmar Cita",
                             on_click=BarberState.confirm_appointment,
                             class_name="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-all duration-300 transform hover:-translate-y-1",
                             type="button",
                         ),
-                        class_name="flex flex-col sm:flex-row justify-end gap-3 mt-6",
+                        rx.el.button(
+                            "Cancelar",
+                            on_click=BarberState.cancel_confirmation,
+                            class_name="w-full sm:w-auto px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium transition-all duration-300 transform hover:-translate-y-1",
+                            type="button",
+                        ),
+                        class_name="flex flex-col sm:flex-row justify-end gap-3 mt-4",
                     ),
-                    class_name="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full m-4 transition-all duration-300 animate-fade-in-up",
+                    class_name="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full m-4 transition-all duration-300 animate-fade-in-up max-h-[95vh] overflow-y-auto",
                 ),
-                class_name="fixed inset-0 z-50 flex items-center justify-center p-4",
+                class_name="fixed inset-0 z-50 flex items-center justify-center p-1",
             ),
             rx.el.div(
                 on_click=BarberState.cancel_confirmation,
